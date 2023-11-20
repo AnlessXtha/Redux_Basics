@@ -32,7 +32,7 @@ Create a file named src/app/store.js. Import the configureStore API from Redux T
 
   app/store.js
 
-        ### `import { configureStore } from '@reduxjs/toolkit'
+        import { configureStore } from '@reduxjs/toolkit'
 
             export const store = configureStore({
             reducer: {},
@@ -41,17 +41,23 @@ Create a file named src/app/store.js. Import the configureStore API from Redux T
             // Infer the `RootState` and `AppDispatch` types from the store itself
             export type RootState = ReturnType<typeof store.getState>
             // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-            export type AppDispatch = typeof store.dispatch`
+            export type AppDispatch = typeof store.dispatch
 
 - # JavaScript
 
   app/store.js
 
-        ### `import { configureStore } from '@reduxjs/toolkit'
+        import { configureStore } from '@reduxjs/toolkit'
 
         export const store = configureStore({
           reducer: {},
-        })`
+        })
 
 Immer
 Immer (German for: always) is a tiny package that allows you to work with immutable state in a more convenient way.
+
+useSelector
+It is used to read a specific variable from a particular reducer.
+
+useDispatch
+It is used for calling any action from any reducer

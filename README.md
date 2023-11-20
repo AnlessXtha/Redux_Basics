@@ -28,9 +28,9 @@ Add the Redux Toolkit and React-Redux packages to your project:
 
 Create a file named src/app/store.js. Import the configureStore API from Redux Toolkit. We'll start by creating an empty Redux store, and exporting it:
 
-- TypeScript
+- # TypeScript
 
-  # app/store.js
+  app/store.js
 
         ### `import { configureStore } from '@reduxjs/toolkit'
 
@@ -43,4 +43,12 @@ Create a file named src/app/store.js. Import the configureStore API from Redux T
             // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
             export type AppDispatch = typeof store.dispatch`
 
-- JavaScript
+- # JavaScript
+
+  app/store.js
+
+        ### `import { configureStore } from '@reduxjs/toolkit'
+
+        export const store = configureStore({
+          reducer: {},
+        })`

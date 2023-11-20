@@ -52,3 +52,6 @@ Create a file named src/app/store.js. Import the configureStore API from Redux T
         export const store = configureStore({
           reducer: {},
         })`
+
+Immer
+Immer (German for: always) is a tiny package that allows you to work with immutable state in a more convenient way.

@@ -15,3 +15,32 @@ Redux is a state management library commonly used with React applications, altho
 4. Dispatch: The process of sending an action to the store. It is the only way to trigger a state change.
 
 5. Subscribe: A function that allows components to listen for changes in the state. When the state in the store changes, subscribers are notified, and they can update their views accordingly.
+
+## Installation
+
+# Install Redux Toolkit and React-Redux
+
+Add the Redux Toolkit and React-Redux packages to your project:
+
+### `npm install @reduxjs/toolkit react-redux`
+
+## Create a Redux Store
+
+Create a file named src/app/store.js. Import the configureStore API from Redux Toolkit. We'll start by creating an empty Redux store, and exporting it:
+
+- TypeScript
+
+  # app/store.js
+
+        ### `import { configureStore } from '@reduxjs/toolkit'
+
+            export const store = configureStore({
+            reducer: {},
+            })
+
+            // Infer the `RootState` and `AppDispatch` types from the store itself
+            export type RootState = ReturnType<typeof store.getState>
+            // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+            export type AppDispatch = typeof store.dispatch`
+
+- JavaScript

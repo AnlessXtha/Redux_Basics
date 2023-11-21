@@ -53,6 +53,46 @@ Create a file named src/app/store.js. Import the configureStore API from Redux T
           reducer: {},
         })
 
+## Provide the Redux Store to React
+
+Once the store is created, we can make it available to our React components by putting a React-Redux `<Provider>` around our application in `src/index.js`. Import the Redux store we just created, put a `<Provider>` around your `<App>`, and pass the store as a prop:
+
+- ## TypeScript
+
+  index.js
+
+        import React from 'react'
+        import ReactDOM from 'react-dom'
+        import './index.css'
+        import App from './App'
+        import { store } from './app/store'
+        import { Provider } from 'react-redux'
+
+        ReactDOM.render(
+          <Provider store={store}>
+            <App />
+          </Provider>,
+          document.getElementById('root')
+        )
+
+- ## JavaScript
+
+  index.js
+
+      import React from 'react'
+      import ReactDOM from 'react-dom'
+      import './index.css'
+      import App from './App'
+      import { store } from './app/store'
+      import { Provider } from 'react-redux'
+
+      ReactDOM.render(
+        <Provider store={store}>
+          <App />
+        </Provider>,
+        document.getElementById('root')
+      )
+
 ## Create a Redux State Slice
 
 Add a new file named `src/features/counter/counterSlice.js`. In that file, import the `createSlice` API from Redux Toolkit.
@@ -232,3 +272,43 @@ useDispatch is a hook in React-Redux that provides a reference to the dispatch f
 
 > [!Note]
 > It is used for calling any action from any reducer
+
+## Create a Redux Store "store.tsx" Explained
+
+export const store = configureStore({
+reducer: {},
+});
+
+// Inter the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>;
+
+//Inferred type: {posts: PostsState, comments: CommentsState, users: UserState}
+export type AppDispatch = typeof store.dispatch;
+
+**Explaination:**
+
+1. Redux Store Configuration:
+
+   import { configureStore } from "@reduxjs/toolkit";
+
+   export const store = configureStore({
+   reducer: {},
+   });
+
+   In this part, you are using the `configureStore` function to create a Redux store. The `reducer` field is where you would normally pass your combined reducers, but in this case, it's an empty object (`{}`).
+
+2. Defining RootState:
+
+   export type RootState = ReturnType<typeof store.getState>;
+
+   This line defines a type `RootState` which is inferred as the return type of the `getState` method from the Redux store. It represents the overall state shape of your application.
+
+3. Defining AppDispatch:
+
+   export type AppDispatch = typeof store.dispatch;
+
+   This line defines a type `AppDispatch` which is inferred as the type of the `dispatch` method from the Redux store. It represents the type of the function you use to dispatch actions in your application.
+
+   This code structure is a common pattern when using Redux with TypeScript. You would later import the `RootState` and `AppDispatch` types in other parts of your application to provide strong typing for state and actions.
+
+   Just remember to replace the empty object `{}` in the `reducer` field with your actual combined reducers when you have them.

@@ -273,7 +273,7 @@ useDispatch is a hook in React-Redux that provides a reference to the dispatch f
 > [!Note]
 > It is used for calling any action from any reducer
 
-### Code Explained
+# Code Explained
 
 ## Create a Redux Store "store.tsx" Explained
 
@@ -287,7 +287,7 @@ useDispatch is a hook in React-Redux that provides a reference to the dispatch f
     //Inferred type: {posts: PostsState, comments: CommentsState, users: UserState}
     export type AppDispatch = typeof store.dispatch;
 
-**Explaination:**
+### **Explaination:**
 
 1. Redux Store Configuration:
 
@@ -314,3 +314,47 @@ useDispatch is a hook in React-Redux that provides a reference to the dispatch f
    This code structure is a common pattern when using Redux with TypeScript. You would later import the `RootState` and `AppDispatch` types in other parts of your application to provide strong typing for state and actions.
 
    Just remember to replace the empty object `{}` in the `reducer` field with your actual combined reducers when you have them.
+
+## Create a Redux State Slice "features/counter/counterSlice.tsx" Explained
+
+      import { createSlice } from "@reduxjs/toolkit";
+      import type { PayloadAction } from "@reduxjs/toolkit";
+
+      export interface CounterState {
+        count: number;
+      }
+
+      const initialState: CounterState = {
+        count: 0,
+      };
+
+      export const counterSlice = createSlice({
+        name: "counter",
+        initialState,
+        reducers: {
+          increment: (state) => {
+            state.count += 1;
+          },
+          decrement: (state) => {
+            state.count -= 1;
+          },
+          incrementByAmount: (state, action: PayloadAction<number>) => {
+            state.count += action.payload;
+          },
+        },
+      });
+
+      // Action creators are generated for each case reducer funtion
+      export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+
+      export default counterSlice.reducer;
+
+### **Explaination:**
+
+1. Defining CounterState:
+
+   export interface CounterState {
+   value: number;
+   }
+
+   This interface defines the shape of the state managed by the counter slice, which consists of a numeric value.

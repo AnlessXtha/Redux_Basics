@@ -273,17 +273,19 @@ useDispatch is a hook in React-Redux that provides a reference to the dispatch f
 > [!Note]
 > It is used for calling any action from any reducer
 
+### Code Explained
+
 ## Create a Redux Store "store.tsx" Explained
 
-export const store = configureStore({
-reducer: {},
-});
+    export const store = configureStore({
+    reducer: {},
+    });
 
-// Inter the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
+    // Inter the `RootState` and `AppDispatch` types from the store itself
+    export type RootState = ReturnType<typeof store.getState>;
 
-//Inferred type: {posts: PostsState, comments: CommentsState, users: UserState}
-export type AppDispatch = typeof store.dispatch;
+    //Inferred type: {posts: PostsState, comments: CommentsState, users: UserState}
+    export type AppDispatch = typeof store.dispatch;
 
 **Explaination:**
 

@@ -456,7 +456,7 @@ In summary, this code defines a Redux slice for managing a counter state. It inc
 
 3. Render Method:
 
-   - Displays the current count value in an <h1> element.
+   - Displays the current count value in an h1 element.
    - Renders a set of buttons to interact with the counter state.
      - "Increment" button dispatches the increment action when clicked.
      - "Decrement" button dispatches the decrement action when clicked.

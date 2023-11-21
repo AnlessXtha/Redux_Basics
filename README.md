@@ -456,18 +456,18 @@ In summary, this code defines a Redux slice for managing a counter state. It inc
 
 3. Render Method:
 
-   - Displays the current count value in an h1 element.
+   - Displays the current count value in an `<h1>` element.
    - Renders a set of buttons to interact with the counter state.
-     - "Increment" button dispatches the increment action when clicked.
-     - "Decrement" button dispatches the decrement action when clicked.
-     - "Increase value by 4" button dispatches the incrementByAmount action with an argument of 4 when clicked.
+     - "Increment" button dispatches the `increment` action when clicked.
+     - "Decrement" button dispatches the `decrement` action when clicked.
+     - "Increase value by 4" button dispatches the `incrementByAmount` action with an argument of 4 when clicked.
 
 4. Accessibility Attributes:
 
-   - Uses aria-label attributes for accessibility by providing a label for each button.
+   - Uses `aria-label` attributes for accessibility by providing a label for each button.
 
 5. Redux Connection:
 
-   - Connects the component to the Redux store by using useSelector to access the counter state and useDispatch to dispatch actions.
+   - Connects the component to the Redux store by using useSelector to access the `counter` state and `useDispatch` to dispatch actions.
 
 In summary, this component serves as a simple UI for displaying and interacting with a counter value managed by Redux. Users can increment, decrement, or increase the count by a specific amount using the provided buttons. The component is connected to the Redux store to ensure state management and updates.

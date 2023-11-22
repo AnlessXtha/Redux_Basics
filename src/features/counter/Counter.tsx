@@ -1,16 +1,20 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+
+// import { useSelector, useDispatch } from "react-redux";
+
+// Using Typed Hooks
+import { useAppSelector, useAppDispatch } from "../../redux/hooks";
+
 import {
   increment,
   decrement,
   incrementByAmount,
   decrementByAmount,
 } from "./counterSlice";
-import { RootState } from "../../redux/store";
 
 export function Counter() {
-  const { count } = useSelector((state: RootState) => state.counter);
-  const dispatch = useDispatch();
+  const { count } = useAppSelector((state) => state.counter);
+  const dispatch = useAppDispatch();
 
   return (
     <div>

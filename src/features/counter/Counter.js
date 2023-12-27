@@ -5,7 +5,7 @@ import { increment, decrement, incrementByAmount } from "./counterSlice";
 function Counter() {
   const count = useSelector((state) => state.counter.value);
   //Alternative way (id the name of the key of initalState is 'count')
-  // const { count } = useSelector((state) => state.counter.value);
+  // const { count } = useSelector((state) => state.counter);
   const dispatch = useDispatch();
   // console.log(count);
   return (
